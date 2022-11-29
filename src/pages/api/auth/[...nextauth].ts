@@ -5,16 +5,26 @@ import fetch from 'node-fetch';
 import { env } from "../../../env/server.mjs";
 
 export const authOptions: NextAuthOptions = {
-  // Include user.id on session
+  // Configure one or more authentication providers
   callbacks: {
-    session({ session, user }) {
+    jwt({ token, user, account }) {
+      if (account && user) {
+        return {
+          ...token,
+          token: user.token,
+        }
+      }
+      return token;
+    },
+
+    session({ session, token }) {
       if (session.user) {
-        session.user.id = user.id;
+        session.user.token = token.token;
       }
       return session;
-    },
+    }
   },
-  // Configure one or more authentication providers
+
   providers: [
     CredentialsProvider({
       credentials: {
@@ -40,7 +50,12 @@ export const authOptions: NextAuthOptions = {
           console.log(user);
 
           if (res.ok && user) {
-            return user;
+            return {
+              ...user,
+              name: user.fullName,
+              token: token.token,
+              type: 'teacher',
+            };
           }
 
           return null;
