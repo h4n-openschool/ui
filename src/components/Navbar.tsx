@@ -9,9 +9,9 @@ export const Navbar: React.FC = () => {
     <div className="h-16 bg-zinc-800 flex items-center text-white">
       <div className="flex items-center justify-between px-6 w-full">
         <div className="flex items-center gap-4">
-          <Link href="/" className="">Dashboard</Link>
-          <p>Classes</p>
-          <p>Students</p>
+          <Link href="/" className="hover:underline font-bold">Dashboard</Link>
+          <Link href="/classes" className="hover:underline font-bold">Classes</Link>
+          <Link href="/students" className="hover:underline font-bold">Students</Link>
           <p>Grades</p>
           <p>Messages</p>
         </div>

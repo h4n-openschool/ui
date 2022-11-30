@@ -29,16 +29,16 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 export interface AuthLoginRequest {
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof AuthLoginRequest
      */
-    'email': any;
+    'email': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof AuthLoginRequest
      */
-    'password': any;
+    'password': string;
 }
 /**
  * 
@@ -48,10 +48,10 @@ export interface AuthLoginRequest {
 export interface AuthLoginResponse {
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof AuthLoginResponse
      */
-    'token': any;
+    'token': string;
 }
 /**
  * 
@@ -61,40 +61,47 @@ export interface AuthLoginResponse {
 export interface Class {
     /**
      * A cuid
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'id': any;
+    'id': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'name': any;
+    'name': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'displayName': any;
+    'displayName': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'description': any;
+    'description': string;
     /**
      * An RFC3339 date/time string
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'createdAt': any;
+    'createdAt': string;
     /**
      * An RFC3339 date/time string
-     * @type {any}
+     * @type {string}
      * @memberof Class
      */
-    'updatedAt': any;
+    'updatedAt': string;
+}
+/**
+ * An array of Classes
+ * @export
+ * @interface ClassList
+ */
+export interface ClassList extends Array<Class> {
 }
 /**
  * 
@@ -104,22 +111,22 @@ export interface Class {
 export interface ClassesCreateRequest {
     /**
      * The name of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesCreateRequest
      */
-    'name'?: any;
+    'name'?: string;
     /**
      * The display name of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesCreateRequest
      */
-    'displayName': any;
+    'displayName': string;
     /**
      * The description of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesCreateRequest
      */
-    'description'?: any;
+    'description'?: string;
 }
 /**
  * 
@@ -142,10 +149,10 @@ export interface ClassesCreateResponse {
 export interface ClassesDelete200Response {
     /**
      * 
-     * @type {any}
+     * @type {boolean}
      * @memberof ClassesDelete200Response
      */
-    'ok': any;
+    'ok': boolean;
 }
 /**
  * 
@@ -173,11 +180,11 @@ export interface ClassesListResponse {
      */
     'pagination': PaginationData;
     /**
-     * An array of Classes
-     * @type {any}
+     * 
+     * @type {ClassList}
      * @memberof ClassesListResponse
      */
-    'classes': any;
+    'classes': ClassList;
 }
 /**
  * 
@@ -187,22 +194,22 @@ export interface ClassesListResponse {
 export interface ClassesUpdateRequest {
     /**
      * The name of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesUpdateRequest
      */
-    'name'?: any;
+    'name'?: string;
     /**
      * The display name of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesUpdateRequest
      */
-    'displayName'?: any;
+    'displayName'?: string;
     /**
      * The description of the Class
-     * @type {any}
+     * @type {string}
      * @memberof ClassesUpdateRequest
      */
-    'description'?: any;
+    'description'?: string;
 }
 /**
  * 
@@ -225,16 +232,16 @@ export interface ClassesUpdateResponse {
 export interface ModelError {
     /**
      * The HTTP error code
-     * @type {any}
+     * @type {number}
      * @memberof ModelError
      */
-    'code': any;
+    'code': number;
     /**
      * A human readable error message
-     * @type {any}
+     * @type {string}
      * @memberof ModelError
      */
-    'message': any;
+    'message': string;
 }
 /**
  * 
@@ -244,16 +251,16 @@ export interface ModelError {
 export interface MultiError {
     /**
      * The HTTP error code
-     * @type {any}
+     * @type {number}
      * @memberof MultiError
      */
-    'code': any;
+    'code': number;
     /**
      * 
-     * @type {any}
+     * @type {Array<string>}
      * @memberof MultiError
      */
-    'messages': any;
+    'messages': Array<string>;
 }
 /**
  * 
@@ -263,46 +270,168 @@ export interface MultiError {
 export interface PaginationData {
     /**
      * 
-     * @type {any}
+     * @type {number}
      * @memberof PaginationData
      */
-    'page': any;
+    'page': number;
     /**
      * 
-     * @type {any}
+     * @type {number}
      * @memberof PaginationData
      */
-    'perPage': any;
+    'perPage': number;
     /**
      * 
-     * @type {any}
+     * @type {number}
      * @memberof PaginationData
      */
-    'total': any;
+    'total': number;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof PaginationData
      */
-    'nextUrl': any;
+    'nextUrl': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof PaginationData
      */
-    'prevUrl': any;
+    'prevUrl': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof PaginationData
      */
-    'firstUrl': any;
+    'firstUrl': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof PaginationData
      */
-    'lastUrl': any;
+    'lastUrl': string;
+}
+/**
+ * 
+ * @export
+ * @interface Student
+ */
+export interface Student {
+    /**
+     * A cuid
+     * @type {string}
+     * @memberof Student
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Student
+     */
+    'fullName': string;
+    /**
+     * An RFC3339 date/time string
+     * @type {string}
+     * @memberof Student
+     */
+    'createdAt': string;
+    /**
+     * An RFC3339 date/time string
+     * @type {string}
+     * @memberof Student
+     */
+    'updatedAt': string;
+}
+/**
+ * An array of Students
+ * @export
+ * @interface StudentList
+ */
+export interface StudentList extends Array<Student> {
+}
+/**
+ * 
+ * @export
+ * @interface StudentsCreateRequest
+ */
+export interface StudentsCreateRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudentsCreateRequest
+     */
+    'fullName': string;
+}
+/**
+ * 
+ * @export
+ * @interface StudentsCreateResponse
+ */
+export interface StudentsCreateResponse {
+    /**
+     * 
+     * @type {Student}
+     * @memberof StudentsCreateResponse
+     */
+    'student': Student;
+}
+/**
+ * 
+ * @export
+ * @interface StudentsGet200Response
+ */
+export interface StudentsGet200Response {
+    /**
+     * 
+     * @type {Student}
+     * @memberof StudentsGet200Response
+     */
+    'teacher'?: Student;
+}
+/**
+ * The response for the /v1/teachers endpoint
+ * @export
+ * @interface StudentsListResponse
+ */
+export interface StudentsListResponse {
+    /**
+     * 
+     * @type {PaginationData}
+     * @memberof StudentsListResponse
+     */
+    'pagination': PaginationData;
+    /**
+     * 
+     * @type {StudentList}
+     * @memberof StudentsListResponse
+     */
+    'students': StudentList;
+}
+/**
+ * 
+ * @export
+ * @interface StudentsUpdateRequest
+ */
+export interface StudentsUpdateRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudentsUpdateRequest
+     */
+    'fullName': string;
+}
+/**
+ * 
+ * @export
+ * @interface StudentsUpdateResponse
+ */
+export interface StudentsUpdateResponse {
+    /**
+     * 
+     * @type {Student}
+     * @memberof StudentsUpdateResponse
+     */
+    'student': Student;
 }
 /**
  * 
@@ -312,34 +441,41 @@ export interface PaginationData {
 export interface Teacher {
     /**
      * A cuid
-     * @type {any}
+     * @type {string}
      * @memberof Teacher
      */
-    'id': any;
+    'id': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Teacher
      */
-    'fullName': any;
+    'fullName': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Teacher
      */
-    'email': any;
+    'email': string;
     /**
      * An RFC3339 date/time string
-     * @type {any}
+     * @type {string}
      * @memberof Teacher
      */
-    'createdAt': any;
+    'createdAt': string;
     /**
      * An RFC3339 date/time string
-     * @type {any}
+     * @type {string}
      * @memberof Teacher
      */
-    'updatedAt': any;
+    'updatedAt': string;
+}
+/**
+ * An array of Teachers
+ * @export
+ * @interface TeacherList
+ */
+export interface TeacherList extends Array<Teacher> {
 }
 /**
  * 
@@ -349,16 +485,16 @@ export interface Teacher {
 export interface TeachersCreateRequest {
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof TeachersCreateRequest
      */
-    'fullName': any;
+    'fullName': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof TeachersCreateRequest
      */
-    'email': any;
+    'email': string;
 }
 /**
  * 
@@ -399,11 +535,11 @@ export interface TeachersListResponse {
      */
     'pagination': PaginationData;
     /**
-     * An array of Teachers
-     * @type {any}
+     * 
+     * @type {TeacherList}
      * @memberof TeachersListResponse
      */
-    'teachers': any;
+    'teachers': TeacherList;
 }
 /**
  * 
@@ -413,16 +549,16 @@ export interface TeachersListResponse {
 export interface TeachersUpdateRequest {
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof TeachersUpdateRequest
      */
-    'fullName': any;
+    'fullName': string;
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof TeachersUpdateRequest
      */
-    'email': any;
+    'email': string;
 }
 /**
  * 
@@ -658,11 +794,11 @@ export const ClassesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Delete a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesDelete: async (id: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        classesDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('classesDelete', 'id', id)
             const localVarPath = `/v1/classes/{id}`
@@ -696,11 +832,11 @@ export const ClassesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesGet: async (id: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        classesGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('classesGet', 'id', id)
             const localVarPath = `/v1/classes/{id}`
@@ -734,12 +870,12 @@ export const ClassesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary List all classes
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesList: async (perPage?: any, page?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        classesList: async (perPage?: number, page?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/classes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -778,12 +914,12 @@ export const ClassesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Update a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {ClassesUpdateRequest} classesUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesUpdate: async (id: any, classesUpdateRequest: ClassesUpdateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        classesUpdate: async (id: string, classesUpdateRequest: ClassesUpdateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('classesUpdate', 'id', id)
             // verify required parameter 'classesUpdateRequest' is not null or undefined
@@ -843,46 +979,46 @@ export const ClassesApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Delete a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async classesDelete(id: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesDelete200Response>> {
+        async classesDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesDelete200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.classesDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Get a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async classesGet(id: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesGet200Response>> {
+        async classesGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesGet200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.classesGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary List all classes
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async classesList(perPage?: any, page?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesListResponse>> {
+        async classesList(perPage?: number, page?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesListResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.classesList(perPage, page, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Update a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {ClassesUpdateRequest} classesUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async classesUpdate(id: any, classesUpdateRequest: ClassesUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesUpdateResponse>> {
+        async classesUpdate(id: string, classesUpdateRequest: ClassesUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesUpdateResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.classesUpdate(id, classesUpdateRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -909,43 +1045,43 @@ export const ClassesApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Delete a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesDelete(id: any, options?: any): AxiosPromise<ClassesDelete200Response> {
+        classesDelete(id: string, options?: any): AxiosPromise<ClassesDelete200Response> {
             return localVarFp.classesDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesGet(id: any, options?: any): AxiosPromise<ClassesGet200Response> {
+        classesGet(id: string, options?: any): AxiosPromise<ClassesGet200Response> {
             return localVarFp.classesGet(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List all classes
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesList(perPage?: any, page?: any, options?: any): AxiosPromise<ClassesListResponse> {
+        classesList(perPage?: number, page?: number, options?: any): AxiosPromise<ClassesListResponse> {
             return localVarFp.classesList(perPage, page, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Update a class by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {ClassesUpdateRequest} classesUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classesUpdate(id: any, classesUpdateRequest: ClassesUpdateRequest, options?: any): AxiosPromise<ClassesUpdateResponse> {
+        classesUpdate(id: string, classesUpdateRequest: ClassesUpdateRequest, options?: any): AxiosPromise<ClassesUpdateResponse> {
             return localVarFp.classesUpdate(id, classesUpdateRequest, options).then((request) => request(axios, basePath));
         },
     };
@@ -973,51 +1109,464 @@ export class ClassesApi extends BaseAPI {
     /**
      * 
      * @summary Delete a class by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassesApi
      */
-    public classesDelete(id: any, options?: AxiosRequestConfig) {
+    public classesDelete(id: string, options?: AxiosRequestConfig) {
         return ClassesApiFp(this.configuration).classesDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get a class by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassesApi
      */
-    public classesGet(id: any, options?: AxiosRequestConfig) {
+    public classesGet(id: string, options?: AxiosRequestConfig) {
         return ClassesApiFp(this.configuration).classesGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary List all classes
-     * @param {any} [perPage] The number of results to retrieve in each page.
-     * @param {any} [page] The page to load.
+     * @param {number} [perPage] The number of results to retrieve in each page.
+     * @param {number} [page] The page to load.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassesApi
      */
-    public classesList(perPage?: any, page?: any, options?: AxiosRequestConfig) {
+    public classesList(perPage?: number, page?: number, options?: AxiosRequestConfig) {
         return ClassesApiFp(this.configuration).classesList(perPage, page, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Update a class by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {ClassesUpdateRequest} classesUpdateRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassesApi
      */
-    public classesUpdate(id: any, classesUpdateRequest: ClassesUpdateRequest, options?: AxiosRequestConfig) {
+    public classesUpdate(id: string, classesUpdateRequest: ClassesUpdateRequest, options?: AxiosRequestConfig) {
         return ClassesApiFp(this.configuration).classesUpdate(id, classesUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * StudentsApi - axios parameter creator
+ * @export
+ */
+export const StudentsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create a new student
+         * @param {StudentsCreateRequest} studentsCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsCreate: async (studentsCreateRequest: StudentsCreateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studentsCreateRequest' is not null or undefined
+            assertParamExists('studentsCreate', 'studentsCreateRequest', studentsCreateRequest)
+            const localVarPath = `/v1/students`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(studentsCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('studentsDelete', 'id', id)
+            const localVarPath = `/v1/students/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('studentsGet', 'id', id)
+            const localVarPath = `/v1/students/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary List all students
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsList: async (perPage?: number, page?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/students`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (perPage !== undefined) {
+                localVarQueryParameter['perPage'] = perPage;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update a student by its CUID
+         * @param {string} id 
+         * @param {StudentsUpdateRequest} studentsUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsUpdate: async (id: string, studentsUpdateRequest: StudentsUpdateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('studentsUpdate', 'id', id)
+            // verify required parameter 'studentsUpdateRequest' is not null or undefined
+            assertParamExists('studentsUpdate', 'studentsUpdateRequest', studentsUpdateRequest)
+            const localVarPath = `/v1/students/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(studentsUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * StudentsApi - functional programming interface
+ * @export
+ */
+export const StudentsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = StudentsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Create a new student
+         * @param {StudentsCreateRequest} studentsCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async studentsCreate(studentsCreateRequest: StudentsCreateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudentsCreateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.studentsCreate(studentsCreateRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Delete a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async studentsDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesDelete200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.studentsDelete(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Get a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async studentsGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudentsGet200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.studentsGet(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary List all students
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async studentsList(perPage?: number, page?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudentsListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.studentsList(perPage, page, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Update a student by its CUID
+         * @param {string} id 
+         * @param {StudentsUpdateRequest} studentsUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async studentsUpdate(id: string, studentsUpdateRequest: StudentsUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudentsUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.studentsUpdate(id, studentsUpdateRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * StudentsApi - factory interface
+ * @export
+ */
+export const StudentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = StudentsApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Create a new student
+         * @param {StudentsCreateRequest} studentsCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsCreate(studentsCreateRequest: StudentsCreateRequest, options?: any): AxiosPromise<StudentsCreateResponse> {
+            return localVarFp.studentsCreate(studentsCreateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsDelete(id: string, options?: any): AxiosPromise<ClassesDelete200Response> {
+            return localVarFp.studentsDelete(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get a student by its CUID
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsGet(id: string, options?: any): AxiosPromise<StudentsGet200Response> {
+            return localVarFp.studentsGet(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary List all students
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsList(perPage?: number, page?: number, options?: any): AxiosPromise<StudentsListResponse> {
+            return localVarFp.studentsList(perPage, page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update a student by its CUID
+         * @param {string} id 
+         * @param {StudentsUpdateRequest} studentsUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        studentsUpdate(id: string, studentsUpdateRequest: StudentsUpdateRequest, options?: any): AxiosPromise<StudentsUpdateResponse> {
+            return localVarFp.studentsUpdate(id, studentsUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * StudentsApi - object-oriented interface
+ * @export
+ * @class StudentsApi
+ * @extends {BaseAPI}
+ */
+export class StudentsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Create a new student
+     * @param {StudentsCreateRequest} studentsCreateRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudentsApi
+     */
+    public studentsCreate(studentsCreateRequest: StudentsCreateRequest, options?: AxiosRequestConfig) {
+        return StudentsApiFp(this.configuration).studentsCreate(studentsCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a student by its CUID
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudentsApi
+     */
+    public studentsDelete(id: string, options?: AxiosRequestConfig) {
+        return StudentsApiFp(this.configuration).studentsDelete(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get a student by its CUID
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudentsApi
+     */
+    public studentsGet(id: string, options?: AxiosRequestConfig) {
+        return StudentsApiFp(this.configuration).studentsGet(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List all students
+     * @param {number} [perPage] The number of results to retrieve in each page.
+     * @param {number} [page] The page to load.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudentsApi
+     */
+    public studentsList(perPage?: number, page?: number, options?: AxiosRequestConfig) {
+        return StudentsApiFp(this.configuration).studentsList(perPage, page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update a student by its CUID
+     * @param {string} id 
+     * @param {StudentsUpdateRequest} studentsUpdateRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudentsApi
+     */
+    public studentsUpdate(id: string, studentsUpdateRequest: StudentsUpdateRequest, options?: AxiosRequestConfig) {
+        return StudentsApiFp(this.configuration).studentsUpdate(id, studentsUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1071,11 +1620,11 @@ export const TeachersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Delete a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersDelete: async (id: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        teachersDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('teachersDelete', 'id', id)
             const localVarPath = `/v1/teachers/{id}`
@@ -1109,11 +1658,11 @@ export const TeachersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Get a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersGet: async (id: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        teachersGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('teachersGet', 'id', id)
             const localVarPath = `/v1/teachers/{id}`
@@ -1147,12 +1696,12 @@ export const TeachersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary List all teachers
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersList: async (perPage?: any, page?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        teachersList: async (perPage?: number, page?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/teachers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1191,12 +1740,12 @@ export const TeachersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Update a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {TeachersUpdateRequest} teachersUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersUpdate: async (id: any, teachersUpdateRequest: TeachersUpdateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        teachersUpdate: async (id: string, teachersUpdateRequest: TeachersUpdateRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('teachersUpdate', 'id', id)
             // verify required parameter 'teachersUpdateRequest' is not null or undefined
@@ -1256,46 +1805,46 @@ export const TeachersApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Delete a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teachersDelete(id: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesDelete200Response>> {
+        async teachersDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClassesDelete200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teachersDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Get a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teachersGet(id: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersGet200Response>> {
+        async teachersGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersGet200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teachersGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary List all teachers
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teachersList(perPage?: any, page?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersListResponse>> {
+        async teachersList(perPage?: number, page?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersListResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teachersList(perPage, page, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Update a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {TeachersUpdateRequest} teachersUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teachersUpdate(id: any, teachersUpdateRequest: TeachersUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersUpdateResponse>> {
+        async teachersUpdate(id: string, teachersUpdateRequest: TeachersUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeachersUpdateResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teachersUpdate(id, teachersUpdateRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1322,43 +1871,43 @@ export const TeachersApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary Delete a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersDelete(id: any, options?: any): AxiosPromise<ClassesDelete200Response> {
+        teachersDelete(id: string, options?: any): AxiosPromise<ClassesDelete200Response> {
             return localVarFp.teachersDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersGet(id: any, options?: any): AxiosPromise<TeachersGet200Response> {
+        teachersGet(id: string, options?: any): AxiosPromise<TeachersGet200Response> {
             return localVarFp.teachersGet(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List all teachers
-         * @param {any} [perPage] The number of results to retrieve in each page.
-         * @param {any} [page] The page to load.
+         * @param {number} [perPage] The number of results to retrieve in each page.
+         * @param {number} [page] The page to load.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersList(perPage?: any, page?: any, options?: any): AxiosPromise<TeachersListResponse> {
+        teachersList(perPage?: number, page?: number, options?: any): AxiosPromise<TeachersListResponse> {
             return localVarFp.teachersList(perPage, page, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Update a teacher by its CUID
-         * @param {any} id 
+         * @param {string} id 
          * @param {TeachersUpdateRequest} teachersUpdateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teachersUpdate(id: any, teachersUpdateRequest: TeachersUpdateRequest, options?: any): AxiosPromise<TeachersUpdateResponse> {
+        teachersUpdate(id: string, teachersUpdateRequest: TeachersUpdateRequest, options?: any): AxiosPromise<TeachersUpdateResponse> {
             return localVarFp.teachersUpdate(id, teachersUpdateRequest, options).then((request) => request(axios, basePath));
         },
     };
@@ -1386,50 +1935,50 @@ export class TeachersApi extends BaseAPI {
     /**
      * 
      * @summary Delete a teacher by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeachersApi
      */
-    public teachersDelete(id: any, options?: AxiosRequestConfig) {
+    public teachersDelete(id: string, options?: AxiosRequestConfig) {
         return TeachersApiFp(this.configuration).teachersDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get a teacher by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeachersApi
      */
-    public teachersGet(id: any, options?: AxiosRequestConfig) {
+    public teachersGet(id: string, options?: AxiosRequestConfig) {
         return TeachersApiFp(this.configuration).teachersGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary List all teachers
-     * @param {any} [perPage] The number of results to retrieve in each page.
-     * @param {any} [page] The page to load.
+     * @param {number} [perPage] The number of results to retrieve in each page.
+     * @param {number} [page] The page to load.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeachersApi
      */
-    public teachersList(perPage?: any, page?: any, options?: AxiosRequestConfig) {
+    public teachersList(perPage?: number, page?: number, options?: AxiosRequestConfig) {
         return TeachersApiFp(this.configuration).teachersList(perPage, page, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Update a teacher by its CUID
-     * @param {any} id 
+     * @param {string} id 
      * @param {TeachersUpdateRequest} teachersUpdateRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeachersApi
      */
-    public teachersUpdate(id: any, teachersUpdateRequest: TeachersUpdateRequest, options?: AxiosRequestConfig) {
+    public teachersUpdate(id: string, teachersUpdateRequest: TeachersUpdateRequest, options?: AxiosRequestConfig) {
         return TeachersApiFp(this.configuration).teachersUpdate(id, teachersUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }

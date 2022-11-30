@@ -1,8 +1,6 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import fetch from 'node-fetch';
-
-import { env } from "../../../env/server.mjs";
+import { authApi } from "../../../utils/api";
 
 export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
@@ -31,29 +29,30 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email", placeholder: "john.doe@school.edu" },
         password: { label: "Password", type: "password" },
       },
-      authorize: async (credentials, req) => {
-        const res = await fetch(`${env.OPENSCHOOL_API_URL}/v1/auth/login`, {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: { "Content-Type": "application/json" },
-        });
-        const token = await res.json() as { token: string };
+      authorize: async (credentials) => {
+        const api = authApi();
 
-        if (res.ok && token) {
-          const res = await fetch(`${env.OPENSCHOOL_API_URL}/v1/auth/me`, {
-            method: 'GET',
+        const res = await api.authLogin({
+          email: credentials?.email,
+          password: credentials?.password,
+        });
+
+        if (res.status == 200) {
+          const { token } = res.data;
+          const user = await api.authCurrentUser({
             headers: {
-              Authorization: `Bearer ${token.token}`,
+              Authorization: `Bearer ${token}`,
             },
           });
-          const user = await res.json() as { id: string, email: string, fullName: string };
-          console.log(user);
 
-          if (res.ok && user) {
+          if (res.status == 200) {
+            const { data } = user;
+
             return {
-              ...user,
-              name: user.fullName,
-              token: token.token,
+              id: data.id,
+              email: data.email,
+              name: data.fullName,
+              token: token,
               type: 'teacher',
             };
           }
@@ -64,7 +63,6 @@ export const authOptions: NextAuthOptions = {
         return null;
       },
     }),
-    // ...add more providers here
   ],
 };
 
