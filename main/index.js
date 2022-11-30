@@ -5,14 +5,14 @@ const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
 
-const dev = process.env.NODE_ENV !== 'production'
+process.env.NODE_ENV = 'development';
+
 const hostname = 'localhost'
 const port = 51909
 // when using middleware `hostname` and `port` must be provided below
-const nextApp = next({ dev, hostname, port })
+const nextApp = next({ dev: true, hostname, port })
 const handle = nextApp.getRequestHandler()
 
-process.env.NODE_ENV = 'production';
 process.env.NEXTAUTH_SECRET = 'unsafe pls change';
 process.env.NEXTAUTH_URL = `http://${hostname}:${port}`;
 
