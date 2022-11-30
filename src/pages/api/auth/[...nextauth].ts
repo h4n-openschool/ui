@@ -31,10 +31,12 @@ export const authOptions: NextAuthOptions = {
       },
       authorize: async (credentials) => {
         const api = authApi();
+        if (!credentials) return null;
+        if (!credentials.email || !credentials.password) return null;
 
         const res = await api.authLogin({
-          email: credentials?.email,
-          password: credentials?.password,
+          email: credentials.email,
+          password: credentials.password,
         });
 
         if (res.status == 200) {
